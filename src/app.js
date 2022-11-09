@@ -34,7 +34,7 @@ app.get('/usuarios',async (req,res)=>{
 
     const [result]=await pool.query('select * from usuario')
 
-    res.json(result[0])      
+    res.json(result)      
 
   })
 
