@@ -33,7 +33,8 @@ app.get('/login', async (req,res)=>{
   const correo=req.query.correo
   const contrasena=req.query.contrasena
   const [result]=await pool.query(`select * from usuario where correo='${correo}' and contrasena='${contrasena}'`)
-  console.log("Ok")
+  res.send("Ok")
+  return  {status: ok}
 })
 
 app.listen(process.env.PORT || 3000)
