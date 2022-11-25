@@ -37,8 +37,7 @@ app.get('/login', async (req,res)=>{
    
     if(result[0].nombre==nombre && result[0].contrasena==contrasena){
       res.send("Usuario correcto")
-    }
-    if(result[0].nombre!=nombre && result[0].contrasena!=contrasena){
+    }else{
       res.send("Usuario incorrecto")
     }
 })
