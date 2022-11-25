@@ -23,6 +23,8 @@ app.get('/usuarios',async (req,res)=>{
     for (let i = 0; i < result.length; i++) {
         if(result[i].nombre==nombre && result[i].contrasena==contrasena){
             res.send("Usuario correcto")
+        }else{
+            res.send("Usuario incorrecto")
         }
     }      
 }) 
