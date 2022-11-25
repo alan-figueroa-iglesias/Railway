@@ -33,8 +33,10 @@ app.get('/login', async (req,res)=>{
   const correo=req.query.correo
   const contrasena=req.query.contrasena
   const [result]=await pool.query(`select * from usuario where correo='${correo}' and contrasena='${contrasena}'`)
-  if (result == true){
+  if (result == 0){
   res.send("Bienvenido")
+ } else {
+  res.send("Error")
  }
 })
 
