@@ -16,17 +16,9 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/usuarios',async (req,res)=>{
-    const nombre=req.query.nombre
-    const contrasena=req.query.contrasena
-    const [result]=await pool.query('select * from usuario')
+  const [result]=await pool.query(`select * from usuario where correo='${correo}' and contrasena='${contrasena}'`)
+  res.json(result)      
 
-    for (let i = 0; i < result.length; i++) {
-        if(result[i].nombre==nombre && result[i].contrasena==contrasena){
-            res.send("Usuario correcto")
-        }else{
-            res.send("Usuario incorrecto")
-        }
-    }      
 }) 
 
 app.get('/agregarusuario',async (req,res)=>{
