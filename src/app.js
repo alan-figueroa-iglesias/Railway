@@ -16,7 +16,7 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/usuarios',async (req,res)=>{
-  const [result]=await pool.query(`select * from usuario where correo='${correo}' and contrasena='${contrasena}'`)
+    const [result]=await pool.query('select * from usuario')
   res.json(result)      
 
 }) 
