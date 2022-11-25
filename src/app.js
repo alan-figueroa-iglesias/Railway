@@ -16,8 +16,15 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/usuarios',async (req,res)=>{
+    const nombre=req.query.nombre
+    const contrasena=req.query.contrasena
     const [result]=await pool.query('select * from usuario')
-    res.json(result)      
+
+    for (let i = 0; i < result.length; i++) {
+        if(result[i].nombre==nombre && result[i].contrasena==contrasena){
+            res.send("Usuario correcto")
+        }
+    }      
 }) 
 
 app.get('/agregarusuario',async (req,res)=>{
