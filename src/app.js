@@ -31,11 +31,11 @@ app.get('/agregarusuario',async (req,res)=>{
   })
 
 app.get('/login', async (req,res)=>{
-  const correo=req.query.correo
+  const nombre=req.query.nombre
   const contrasena=req.query.contrasena
-  const [result]=await pool.query(`select * from usuario where correo='${correo}' and contrasena='${contrasena}'`)
+  const [result]=await pool.query(`select * from usuario where nombre='${nombre}' and contrasena='${contrasena}'`)
    for (let i = 0; i < result.length; i++) {
-    if(result[i].correo==correo && result[i].contrasena==contrasena){
+    if(result[i].nombre==nombre && result[i].contrasena==contrasena){
       res.send("Usuario correcto")
     }else{
       res.send("Usuario incorrecto")
